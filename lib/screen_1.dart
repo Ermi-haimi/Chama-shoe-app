@@ -12,7 +12,7 @@ class Screen1 extends StatelessWidget {
       ),
       body: Column(
         children: [
-          ShoeImageContainer(),
+          ImageSlider(),
           Padding(
             padding: const EdgeInsets.all(18.0),
             child: Column(
@@ -103,26 +103,36 @@ class Screen1 extends StatelessWidget {
   }
 }
 
-class ShoeImageContainer extends StatefulWidget {
-  const ShoeImageContainer({super.key});
+class ImageSlider extends StatelessWidget {
+  ImageSlider({super.key});
 
-  @override
-  State<ShoeImageContainer> createState() => _ShoeImageContainerState();
-}
+  final _pageController = PageController(
+    initialPage: 2,
+    viewportFraction: 0.8,
+  );
 
-class _ShoeImageContainerState extends State<ShoeImageContainer> {
+  final List<String> images = [
+    'asset/images/qc_1.webp',
+    'asset/images/qc_2.webp',
+    'asset/images/qc_3.webp',
+    'asset/images/qc_4.webp',
+    'asset/images/qc_lightblue_pair.webp',
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 300,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.vertical(
-          bottom: Radius.circular(30),
-        ),
-        color: Colors.grey,
+      child: PageView.builder(
+        itemCount: images.length,
+        itemBuilder: (context, index) {
+          return Image.asset(
+            images[index],
+            fit: BoxFit.cover,
+          );
+        },
+        controller: _pageController,
       ),
-      child: Image.asset('asset/images/qc_blue_light_blue_pair.png'),
     );
   }
 }
