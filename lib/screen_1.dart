@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'data.dart';
 
 class Screen1 extends StatelessWidget {
   const Screen1({super.key});
@@ -67,26 +68,17 @@ class Screen1 extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              'US',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w400,
-                              ),
+                            ShoeSizeTypeByCountry(
+                              country: 'US',
+                              onTap: () {},
                             ),
-                            Text(
-                              'UK',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w400,
-                              ),
+                            ShoeSizeTypeByCountry(
+                              country: 'UK',
+                              onTap: () {},
                             ),
-                            Text(
-                              'EU',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w400,
-                              ),
+                            ShoeSizeTypeByCountry(
+                              country: 'EU',
+                              onTap: () {},
                             ),
                           ],
                         ),
@@ -94,10 +86,37 @@ class Screen1 extends StatelessWidget {
                     ),
                   ],
                 ),
+                ShoeSizeSelector(),
               ],
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class ShoeSizeTypeByCountry extends StatelessWidget {
+  final String country;
+  final VoidCallback onTap;
+
+  const ShoeSizeTypeByCountry({required this.country, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      style: TextButton.styleFrom(
+        padding: EdgeInsets.all(5),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        minimumSize: Size.zero,
+      ),
+      onPressed: onTap,
+      child: Text(
+        country,
+        style: TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.w400,
+        ),
       ),
     );
   }
@@ -132,6 +151,35 @@ class ImageSlider extends StatelessWidget {
           );
         },
         controller: _pageController,
+      ),
+    );
+  }
+}
+
+class ShoeSizeSelector extends StatelessWidget {
+  const ShoeSizeSelector({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 60,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: shoeSize.map((size) {
+          return Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: TextButton(
+              onPressed: () {},
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.orange,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+              ),
+              child: Text(size),
+            ),
+          );
+        }).toList(),
       ),
     );
   }
