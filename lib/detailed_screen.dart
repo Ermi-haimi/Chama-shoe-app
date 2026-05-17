@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'data.dart';
+import 'shoe_model.dart';
 
-class Screen1 extends StatelessWidget {
-  const Screen1({super.key});
+class DetailShoeScreen extends StatelessWidget {
+  final Shoe shoeObject;
+
+  DetailShoeScreen({required this.shoeObject});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +16,7 @@ class Screen1 extends StatelessWidget {
       ),
       body: Column(
         children: [
-          ImageSlider(),
+          ImageSlider(images: shoeObject.images),
           Padding(
             padding: const EdgeInsets.all(18.0),
             child: Column(
@@ -37,14 +40,14 @@ class Screen1 extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Cloud 9',
+                      shoeObject.name,
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
                     Text(
-                      '\$245',
+                      '\$${shoeObject.price}',
                       style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.w400,
@@ -123,34 +126,38 @@ class ShoeSizeTypeByCountry extends StatelessWidget {
 }
 
 class ImageSlider extends StatelessWidget {
-  ImageSlider({super.key});
+  final List<String> images;
+
+  ImageSlider({required this.images});
 
   final _pageController = PageController(
     initialPage: 2,
     viewportFraction: 0.8,
   );
 
-  final List<String> images = [
-    'asset/images/qc_1.webp',
-    'asset/images/qc_2.webp',
-    'asset/images/qc_3.webp',
-    'asset/images/qc_4.webp',
-    'asset/images/qc_lightblue_pair.webp',
-  ];
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 300,
-      child: PageView.builder(
-        itemCount: images.length,
-        itemBuilder: (context, index) {
-          return Image.asset(
-            images[index],
-            fit: BoxFit.cover,
-          );
-        },
-        controller: _pageController,
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.blue,
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(30),
+            bottomLeft: Radius.circular(30),
+          ),
+        ),
+
+        child: PageView.builder(
+          itemCount: images.length,
+          itemBuilder: (context, index) {
+            return Image.asset(
+              images[index],
+              fit: BoxFit.cover,
+            );
+          },
+          controller: _pageController,
+        ),
       ),
     );
   }
@@ -171,10 +178,11 @@ class ShoeSizeSelector extends StatelessWidget {
             child: TextButton(
               onPressed: () {},
               style: TextButton.styleFrom(
-                backgroundColor: Colors.orange,
+                // backgroundColor: Colors.grey,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
+                side: BorderSide(color: Colors.orange),
               ),
               child: Text(size),
             ),

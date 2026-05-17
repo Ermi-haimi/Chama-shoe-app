@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'shoe_data.dart';
+import 'detailed_screen.dart';
 
 class HomeShoeList extends StatelessWidget {
   @override
@@ -39,7 +40,14 @@ class ShoeSelector extends StatelessWidget {
         return ReuseableCard(
           kelem: Colors.transparent,
           onPress: () {
-            // Navigator()
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => DetailShoeScreen(
+                  shoeObject: chama,
+                ),
+              ),
+            );
           },
           childCard: Padding(
             padding: const EdgeInsets.only(
