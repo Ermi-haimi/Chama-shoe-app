@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'data.dart';
 import 'shoe_model.dart';
+import 'shoe_data.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class DetailShoeScreen extends StatelessWidget {
   final Shoe shoeObject;
@@ -131,8 +132,7 @@ class ImageSlider extends StatelessWidget {
   ImageSlider({required this.images});
 
   final _pageController = PageController(
-    initialPage: 2,
-    viewportFraction: 0.8,
+    // viewportFraction: 0.9,
   );
 
   @override
@@ -148,15 +148,30 @@ class ImageSlider extends StatelessWidget {
           ),
         ),
 
-        child: PageView.builder(
-          itemCount: images.length,
-          itemBuilder: (context, index) {
-            return Image.asset(
-              images[index],
-              fit: BoxFit.cover,
-            );
-          },
-          controller: _pageController,
+        child: Column(
+          children: [
+            Expanded(
+              child: PageView.builder(
+                // scrollDirection: Axis.horizontal,
+                itemCount: images.length,
+                itemBuilder: (context, index) {
+                  return Image.asset(
+                    images[index],
+                    fit: BoxFit.cover,
+                  );
+                },
+                controller: _pageController,
+              ),
+            ),
+            SmoothPageIndicator(
+              controller: _pageController,
+              count: images.length,
+              effect: WormEffect(),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+          ],
         ),
       ),
     );
