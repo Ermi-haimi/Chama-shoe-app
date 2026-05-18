@@ -16,7 +16,60 @@ class HomeShoeList extends StatelessWidget {
           children: [
             Container(
               height: 300,
-              color: Colors.transparent,
+              width: double.infinity,
+              // color: Colors.transparent,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('asset/images/runners.png'),
+                  fit: BoxFit.cover,
+                ),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(23),
+                  bottomRight: Radius.circular(23),
+                ),
+              ),
+              child: Stack(
+                children: [
+                  Positioned(
+                    top: 20,
+                    left: 10,
+                    child: Text(
+                      'Run',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 40,
+                        shadows: [
+                          Shadow(
+                            color: Colors.black.withValues(alpha: 0.3),
+                            blurRadius: 10,
+                            offset: Offset(5, 5),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 20,
+                    left: 70,
+                    child: Text(
+                      'like you never did',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 40,
+                        shadows: [
+                          Shadow(
+                            color: Colors.black.withValues(alpha: 0.3),
+                            blurRadius: 10,
+                            offset: Offset(5, 5),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
             ShoeSelector(),
           ],
