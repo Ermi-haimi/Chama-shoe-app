@@ -92,8 +92,9 @@ class CartScreen extends StatelessWidget {
               child: Text(
                 'Your Cart is Empty',
                 style: TextStyle(
-                  fontSize: 60,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 40,
+                  // fontWeight: FontWeight.bold,
+                  letterSpacing: -3,
                   color: Colors.orange,
                 ),
                 textAlign: TextAlign.center,

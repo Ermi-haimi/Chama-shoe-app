@@ -51,16 +51,23 @@ class LargeButton extends StatelessWidget {
       style: TextButton.styleFrom(
         backgroundColor: Colors.orange,
         padding: EdgeInsets.fromLTRB(
-          60,
+          100,
           10,
-          60,
+          100,
           10,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
         ),
       ),
 
       onPressed: ontap,
       child: Text(
         txt,
+        style: TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.w800,
+        ),
       ),
     );
   }

@@ -50,9 +50,19 @@ class _DetailShoeScreenState extends State<DetailShoeScreen> {
                         'Men\'s Shoe',
                         style: TextStyle(
                           color: Colors.grey[500],
+                          fontSize: 20,
                         ),
                       ),
-                      Text('4.5'),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.star,
+                            size: 18,
+                            color: Colors.green,
+                          ),
+                          Text('4.5'),
+                        ],
+                      ),
                     ],
                   ),
                   SizedBox(
@@ -67,13 +77,15 @@ class _DetailShoeScreenState extends State<DetailShoeScreen> {
                           color: Colors.deepOrangeAccent,
                           fontSize: 30,
                           fontWeight: FontWeight.w500,
+                          fontFamily: 'NotoSerif',
                         ),
                       ),
                       Text(
                         '\$${widget.shoeObject.price}',
                         style: TextStyle(
                           fontSize: 25,
-                          fontWeight: FontWeight.w400,
+                          fontWeight: FontWeight.w700,
+                          letterSpacing: -1,
                         ),
                       ),
                     ],

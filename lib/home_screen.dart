@@ -1,3 +1,4 @@
+import 'package:chama_chama/reusable_widgets.dart';
 import 'package:flutter/material.dart';
 import 'shoe_data.dart';
 import 'detailed_screen.dart';
@@ -7,9 +8,8 @@ class HomeShoeList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text('QC'),
-        centerTitle: true,
+      appBar: QCAppbar(
+        ic: 'cart',
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -39,9 +39,11 @@ class HomeShoeList extends StatelessWidget {
                         color: Colors.white,
                         fontWeight: FontWeight.w800,
                         fontSize: 40,
+
+                        fontFamily: 'NotoSerif',
                         shadows: [
                           Shadow(
-                            color: Colors.black.withValues(alpha: 0.3),
+                            color: Colors.black.withValues(alpha: 0.6),
                             blurRadius: 10,
                             offset: Offset(5, 5),
                           ),
@@ -51,16 +53,17 @@ class HomeShoeList extends StatelessWidget {
                   ),
                   Positioned(
                     bottom: 20,
-                    left: 70,
+                    right: 6,
                     child: Text(
                       'like you never did',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w800,
                         fontSize: 40,
+                        fontFamily: 'NotoSerif',
                         shadows: [
                           Shadow(
-                            color: Colors.black.withValues(alpha: 0.3),
+                            color: Colors.black.withValues(alpha: 0.6),
                             blurRadius: 10,
                             offset: Offset(5, 5),
                           ),
@@ -117,9 +120,11 @@ class ShoeSelector extends StatelessWidget {
                   chama.name,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 23,
-                    color: Colors.blueAccent[700],
+                    fontSize: 20,
+                    color: Colors.deepOrangeAccent[700],
+                    fontFamily: 'NotoSerif',
                   ),
+                  textAlign: TextAlign.center,
                 ),
                 SizedBox(
                   height: 10,
@@ -128,6 +133,8 @@ class ShoeSelector extends StatelessWidget {
                   '\$${chama.price.toString()}',
                   style: TextStyle(
                     fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    letterSpacing: -1,
                   ),
                 ),
               ],
