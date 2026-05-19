@@ -1,3 +1,4 @@
+import 'package:chama_chama/reusable_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -9,37 +10,95 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cartItems = context.watch<CartProvider>().items;
+    var l = cartItems.length;
 
     return Scaffold(
-      body: ListView.builder(
-        itemCount: cartItems.length,
-
-        itemBuilder: (context, index) {
-          final item = cartItems[index];
-
-          return ListTile(
-            leading: Image.asset(
-              item.shoe.mainImage,
-              height: 250,
-            ),
-            title: Text(item.shoe.name),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+      appBar: QCAppbar(),
+      body: l > 0
+          ? Column(
               children: [
-                Text(
-                  'Size: ${item.size}',
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: cartItems.length,
+
+                    itemBuilder: (context, index) {
+                      final item = cartItems[index];
+
+                      return Padding(
+                        padding: const EdgeInsets.all(12),
+
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              item.shoe.mainImage,
+                              height: 120,
+                              width: 120,
+                              fit: BoxFit.cover,
+                            ),
+
+                            SizedBox(width: 15),
+
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+
+                                children: [
+                                  Text(
+                                    item.shoe.name,
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+
+                                  SizedBox(height: 8),
+
+                                  Text('Size: ${item.size}'),
+
+                                  Text(
+                                    'Quantity: ${item.quantity}',
+                                  ),
+
+                                  SizedBox(height: 8),
+
+                                  Text(
+                                    '\$${item.shoe.price * item.quantity}',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                context.read<CartProvider>().removeItem(index);
+                              },
+                              icon: Icon(
+                                Icons.delete,
+                                color: Colors.red,
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
                 ),
-                Text(
-                  'Quantity: ${item.quantity}',
-                ),
+                LargeButton(ontap: () {}, txt: 'Check out'),
               ],
+            )
+          : Center(
+              child: Text(
+                'Your Cart is Empty',
+                style: TextStyle(
+                  fontSize: 60,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.orange,
+                ),
+                textAlign: TextAlign.center,
+              ),
             ),
-            trailing: Text(
-              '\$${item.shoe.price * item.quantity}',
-            ),
-          );
-        },
-      ),
     );
   }
 }

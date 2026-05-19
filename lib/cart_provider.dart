@@ -31,8 +31,8 @@ class CartProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void removeItem(CartShoeModel item) {
-    _items.remove(item);
+  void removeItem(int index) {
+    _items.removeAt(index);
 
     notifyListeners();
   }

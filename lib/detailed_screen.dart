@@ -1,4 +1,5 @@
 import 'package:chama_chama/cart_screen.dart';
+import 'package:chama_chama/reusable_widgets.dart';
 import 'package:flutter/material.dart';
 import 'shoe_model.dart';
 import 'shoe_data.dart';
@@ -31,9 +32,8 @@ class _DetailShoeScreenState extends State<DetailShoeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('QC'),
-        centerTitle: true,
+      appBar: QCAppbar(
+        ic: 'cart',
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -154,37 +154,14 @@ class _DetailShoeScreenState extends State<DetailShoeScreen> {
                   SizedBox(
                     height: 10,
                   ),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.orange,
-                      padding: EdgeInsets.fromLTRB(
-                        60,
-                        10,
-                        60,
-                        10,
-                      ),
-                    ),
-
-                    onPressed: () {
+                  LargeButton(
+                    txt: 'Add to Cart',
+                    ontap: () {
                       context.read<CartProvider>().addToCart(
                         shoe: widget.shoeObject,
                         size: selectedSize,
                       );
                     },
-                    child: Text(
-                      'Add to Cart',
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => CartScreen(),
-                        ),
-                      );
-                    },
-                    child: Text('cart,'),
                   ),
                 ],
               ),
