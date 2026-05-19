@@ -1,7 +1,11 @@
+import 'package:chama_chama/cart_screen.dart';
 import 'package:flutter/material.dart';
 import 'shoe_model.dart';
 import 'shoe_data.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'cart_shoe_model.dart';
+import 'cart_provider.dart';
+import 'package:provider/provider.dart';
 
 List<String> shoeSize = shoeSizeEu;
 
@@ -161,10 +165,26 @@ class _DetailShoeScreenState extends State<DetailShoeScreen> {
                       ),
                     ),
 
-                    onPressed: () {},
+                    onPressed: () {
+                      context.read<CartProvider>().addToCart(
+                        shoe: widget.shoeObject,
+                        size: selectedSize,
+                      );
+                    },
                     child: Text(
                       'Add to Cart',
                     ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CartScreen(),
+                        ),
+                      );
+                    },
+                    child: Text('cart,'),
                   ),
                 ],
               ),
