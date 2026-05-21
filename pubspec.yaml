@@ -26,6 +26,11 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_localizations:
+    sdk: flutter
+
+  intl: any
+
   cupertino_icons: ^1.0.8
   smooth_page_indicator: ^2.0.1
   provider: ^6.1.5+1
@@ -35,11 +40,9 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  #  flutter:
-
-
-
   flutter_lints: ^6.0.0
+
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -61,5 +64,6 @@ flutter:
   #        - asset: fonts/RobotoMono-Regular.ttf
   #        - asset: fonts/RobotoMono-Bold.ttf
   #          weight: 700
+  generate: true
 
 

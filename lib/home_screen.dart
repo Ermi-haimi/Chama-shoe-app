@@ -2,12 +2,13 @@ import 'package:chama_chama/reusable_widgets.dart';
 import 'package:flutter/material.dart';
 import 'shoe_data.dart';
 import 'detailed_screen.dart';
+import 'package:chama_chama/l10n/app_localizations.dart';
 
 class HomeShoeList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: QCAppbar(
         ic: 'cart',
       ),
@@ -34,7 +35,7 @@ class HomeShoeList extends StatelessWidget {
                     top: 20,
                     left: 10,
                     child: Text(
-                      'Run',
+                      AppLocalizations.of(context)!.run,
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w800,
@@ -55,7 +56,7 @@ class HomeShoeList extends StatelessWidget {
                     bottom: 20,
                     right: 6,
                     child: Text(
-                      'like you never did',
+                      AppLocalizations.of(context)!.runLike,
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w800,
@@ -121,7 +122,7 @@ class ShoeSelector extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
-                    color: Colors.deepOrangeAccent[700],
+                    color: Theme.of(context).colorScheme.primary,
                     fontFamily: 'NotoSerif',
                   ),
                   textAlign: TextAlign.center,
@@ -135,6 +136,7 @@ class ShoeSelector extends StatelessWidget {
                     fontSize: 20,
                     fontWeight: FontWeight.w500,
                     letterSpacing: -1,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                 ),
               ],
@@ -160,18 +162,28 @@ class ReuseableCard extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.all(15),
         decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [Colors.white, Colors.brown]),
+          gradient: LinearGradient(
+            colors: Theme.of(context).brightness == Brightness.dark
+                ? [
+                    Colors.grey.shade900,
+                    Colors.grey.shade800,
+                  ]
+                : [
+                    Colors.white,
+                    Colors.brown.shade200,
+                  ],
+          ),
+
           boxShadow: [
             BoxShadow(
               color: Colors.black.withValues(alpha: 0.3),
               spreadRadius: 2,
               blurRadius: 10,
-              offset: Offset(15, 5),
+              offset: const Offset(15, 5),
             ),
           ],
-          // color: kelem,
+
           borderRadius: BorderRadius.circular(10),
-          // border: Border.all(color: Colors.blue, width: 1),
         ),
         child: childCard,
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'cart_screen.dart';
+import 'main.dart';
 
 class QCAppbar extends StatelessWidget implements PreferredSizeWidget {
   final String? ic;
@@ -9,29 +10,71 @@ class QCAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text('QC'),
+      title: const Text('QC'),
       centerTitle: true,
-      actions: ic == 'cart'
-          ? [
-              IconButton(
-                color: Colors.deepOrangeAccent,
-                iconSize: 35,
 
-                icon: Icon(
-                  Icons.shopping_cart,
+      actions: [
+        if (ic == 'cart')
+          IconButton(
+            color: Colors.deepOrangeAccent,
+            iconSize: 35,
+
+            icon: const Icon(
+              Icons.shopping_cart,
+            ),
+
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const CartScreen(),
                 ),
+              );
+            },
+          ),
+        Switch(
+          value: Theme.of(context).brightness == Brightness.dark,
 
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => CartScreen(),
-                    ),
-                  );
-                },
+          thumbIcon: WidgetStateProperty.resolveWith<Icon?>(
+            (Set<WidgetState> states) {
+              if (states.contains(WidgetState.selected)) {
+                return const Icon(Icons.dark_mode);
+              }
+
+              return const Icon(Icons.light_mode);
+            },
+          ),
+
+          onChanged: (value) {
+            MyApp.of(context).changeTheme(value);
+          },
+        ),
+        DropdownButtonHideUnderline(
+          child: DropdownButton<String>(
+            value: Localizations.localeOf(context).languageCode,
+
+            borderRadius: BorderRadius.circular(15),
+
+            items: const [
+              DropdownMenuItem(
+                value: 'en',
+                child: Text('EN'),
               ),
-            ]
-          : [],
+
+              DropdownMenuItem(
+                value: 'am',
+                child: Text('AM'),
+              ),
+            ],
+
+            onChanged: (value) {
+              if (value != null) {
+                MyApp.of(context).changeLanguage(value);
+              }
+            },
+          ),
+        ),
+      ],
     );
   }
 

@@ -1,8 +1,8 @@
 import 'package:chama_chama/reusable_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'cart_provider.dart';
+import 'package:chama_chama/l10n/app_localizations.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -11,6 +11,7 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final cartItems = context.watch<CartProvider>().items;
     var l = cartItems.length;
+    final local = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: QCAppbar(),
@@ -53,10 +54,10 @@ class CartScreen extends StatelessWidget {
 
                                   SizedBox(height: 8),
 
-                                  Text('Size: ${item.size}'),
+                                  Text('${local.size}: ${item.size}'),
 
                                   Text(
-                                    'Quantity: ${item.quantity}',
+                                    '${local.quantity}: ${item.quantity}',
                                   ),
 
                                   SizedBox(height: 8),
@@ -85,12 +86,12 @@ class CartScreen extends StatelessWidget {
                     },
                   ),
                 ),
-                LargeButton(ontap: () {}, txt: 'Check out'),
+                LargeButton(ontap: () {}, txt: local.checkout),
               ],
             )
           : Center(
               child: Text(
-                'Your Cart is Empty',
+                local.emptyCart,
                 style: TextStyle(
                   fontSize: 40,
                   // fontWeight: FontWeight.bold,

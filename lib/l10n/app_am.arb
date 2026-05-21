@@ -1,0 +1,11 @@
+{
+  "run": "ሩጥ",
+  "runLike": "ምንም ያልሮጥህ ያህል",
+  "mensShoe": "የወንዶች ጫማ",
+  "size": "መጠን",
+  "description": "መግለጫ",
+  "addToCart": "ወደ ዘንቢል ጨምር",
+  "quantity": "ብዛት",
+  "checkout": "ክፍያ",
+  "emptyCart": "ዘንቢልዎ ባዶ ነው"
+}

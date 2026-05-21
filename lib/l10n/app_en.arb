@@ -1,0 +1,11 @@
+{
+  "run": "Run",
+  "runLike": "like you never did",
+  "mensShoe": "Men's Shoe",
+  "size": "Size",
+  "description": "Description",
+  "addToCart": "Add to Cart",
+  "quantity": "Quantity",
+  "checkout": "Check out",
+  "emptyCart": "Your Cart is Empty"
+}

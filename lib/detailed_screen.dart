@@ -7,6 +7,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'cart_shoe_model.dart';
 import 'cart_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:chama_chama/l10n/app_localizations.dart';
 
 List<String> shoeSize = shoeSizeEu;
 
@@ -31,6 +32,7 @@ class DetailShoeScreen extends StatefulWidget {
 class _DetailShoeScreenState extends State<DetailShoeScreen> {
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: QCAppbar(
         ic: 'cart',
@@ -47,7 +49,7 @@ class _DetailShoeScreenState extends State<DetailShoeScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Men\'s Shoe',
+                        local.mensShoe,
                         style: TextStyle(
                           color: Colors.grey[500],
                           fontSize: 20,
@@ -96,7 +98,7 @@ class _DetailShoeScreenState extends State<DetailShoeScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Size',
+                            local.size,
                             style: TextStyle(
                               fontSize: 30,
                               fontWeight: FontWeight.w500,
@@ -154,7 +156,7 @@ class _DetailShoeScreenState extends State<DetailShoeScreen> {
                   ),
                   ExpansionTile(
                     title: Text(
-                      'Description',
+                      local.description,
                     ),
                     children: [
                       Padding(
@@ -167,7 +169,7 @@ class _DetailShoeScreenState extends State<DetailShoeScreen> {
                     height: 10,
                   ),
                   LargeButton(
-                    txt: 'Add to Cart',
+                    txt: local.addToCart,
                     ontap: () {
                       context.read<CartProvider>().addToCart(
                         shoe: widget.shoeObject,
@@ -303,7 +305,12 @@ class _ShoeSizeSelectorState extends State<ShoeSizeSelector> {
                 ),
                 side: BorderSide(color: Colors.orange),
               ),
-              child: Text(size),
+              child: Text(
+                size,
+                style: TextStyle(
+                  color: Colors.lightBlue,
+                ),
+              ),
             ),
           );
         }).toList(),
