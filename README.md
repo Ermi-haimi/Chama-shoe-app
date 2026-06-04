@@ -22,18 +22,25 @@ interface. The app supports multiple languages and theme switching for better us
 
 | English                                           | Amharic                                           |
 |---------------------------------------------------|---------------------------------------------------|
-| ![](asset/images/screenshots/home_1_light.jpg)    | ![](asset/images/screenshots/detail_light_am.jpg) |
-| ![](asset/images/screenshots/detail_light_en.jpg) | ![](asset/images/screenshots/cart_light_am.jpg)   |
-| ![](asset/images/screenshots/cart_light.jpg)      |
+|  <img src="asset/images/screenshots/home_1_light.jpg" width="300"/>   |  <img src="asset/images/screenshots/detail_light_am.jpg" width="300"/> |
+|  <img src="asset/images/screenshots/detail_light_en.jpg" width="300"/> |  <img src="asset/images/screenshots/cart_light_am.jpg" width="300"/>|
+|  <img src="asset/images/screenshots/cart_light.jpg" width="300"/>     |
 
-### Dark Theme
+
+### Dark Theme (English)
+
+| Home | Details |
+|------|--------|
+| <img src="asset/images/screenshots/home_1_dark.jpg" width="300"/> | <img src="asset/images/screenshots/detail_dark.jpg" width="300"/> |
+
+<!-- ### Dark Theme
 
 | English                                                    |
 |------------------------------------------------------------|
 | ![Home Dark EN](asset/images/screenshots/home_1_dark.jpg)  |
 | ![Home Dark EN](asset/images/screenshots/home_2_dark.jpg)  |
 | ![Home Dark EN](asset/images/screenshots/detail_dark.jpg)  |
-| ![Details Dark EN](asset/images/screenshots/cart_dark.jpg) |
+| ![Details Dark EN](asset/images/screenshots/cart_dark.jpg) | -->
 
 ---
 
@@ -106,7 +113,7 @@ git clone https://github.com/Ermi-haimi/Chama-shoe-app.git
 Navigate to the project:
 
 ```bash
-cd chama-shoe-app
+cd Chama-shoe-app
 ```
 
 Install dependencies:
