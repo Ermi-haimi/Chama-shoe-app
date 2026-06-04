@@ -152,7 +152,7 @@ class _DetailShoeScreenState extends State<DetailShoeScreen> {
                   ),
                   ShoeSizeSelector(),
                   SizedBox(
-                    height: 20,
+                    height: 4,
                   ),
                   ExpansionTile(
                     title: Text(
@@ -166,7 +166,7 @@ class _DetailShoeScreenState extends State<DetailShoeScreen> {
                     ],
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 0,
                   ),
                   LargeButton(
                     txt: local.addToCart,

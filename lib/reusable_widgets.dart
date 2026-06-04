@@ -17,7 +17,7 @@ class QCAppbar extends StatelessWidget implements PreferredSizeWidget {
         if (ic == 'cart')
           IconButton(
             color: Colors.deepOrangeAccent,
-            iconSize: 35,
+            iconSize: 25,
 
             icon: const Icon(
               Icons.shopping_cart,
@@ -32,22 +32,33 @@ class QCAppbar extends StatelessWidget implements PreferredSizeWidget {
               );
             },
           ),
-        Switch(
-          value: Theme.of(context).brightness == Brightness.dark,
+        SizedBox(
+          height: 30,
+          child: FittedBox(
+            child: Switch(
+              value: Theme.of(context).brightness == Brightness.dark,
 
-          thumbIcon: WidgetStateProperty.resolveWith<Icon?>(
-            (Set<WidgetState> states) {
-              if (states.contains(WidgetState.selected)) {
-                return const Icon(Icons.dark_mode);
-              }
+              thumbIcon: WidgetStateProperty.resolveWith<Icon?>(
+                (Set<WidgetState> states) {
+                  if (states.contains(WidgetState.selected)) {
+                    return const Icon(
+                      Icons.dark_mode,
+                      color: Colors.orange,
+                    );
+                  }
 
-              return const Icon(Icons.light_mode);
-            },
+                  return const Icon(Icons.light_mode);
+                },
+              ),
+
+              onChanged: (value) {
+                MyApp.of(context).changeTheme(value);
+              },
+            ),
           ),
-
-          onChanged: (value) {
-            MyApp.of(context).changeTheme(value);
-          },
+        ),
+        SizedBox(
+          width: 5,
         ),
         DropdownButtonHideUnderline(
           child: DropdownButton<String>(
@@ -110,7 +121,9 @@ class LargeButton extends StatelessWidget {
         style: TextStyle(
           fontSize: 30,
           fontWeight: FontWeight.w800,
+          color: Colors.black,
         ),
+        textAlign: TextAlign.center,
       ),
     );
   }

@@ -49,7 +49,6 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
 
       locale: _locale,
-
       themeMode: _themeMode,
 
       theme: ThemeData(
@@ -85,9 +84,7 @@ class _MyAppState extends State<MyApp> {
       ],
 
       home: SafeArea(
-        child: Scaffold(
-          body: HomeShoeList(),
-        ),
+        child: HomeShoeList(),
       ),
     );
   }

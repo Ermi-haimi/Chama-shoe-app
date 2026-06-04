@@ -87,6 +87,9 @@ class CartScreen extends StatelessWidget {
                   ),
                 ),
                 LargeButton(ontap: () {}, txt: local.checkout),
+                SizedBox(
+                  height: 10,
+                ),
               ],
             )
           : Center(
