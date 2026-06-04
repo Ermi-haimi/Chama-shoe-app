@@ -20,20 +20,20 @@ interface. The app supports multiple languages and theme switching for better us
 
 ### Light Theme
 
-| English                                            | Amharic                                            |
-|----------------------------------------------------|----------------------------------------------------|
-| ![](assets/images/screenshots/home_1_light.jpg)    | ![](assets/images/screenshots/detail_light_am.jpg) |
-| ![](assets/images/screenshots/detail_light_en.jpg) | ![](assets/images/screenshots/cart_light_am.jpg)   |
-| ![](assets/images/screenshots/cart_light.jpg)      |
+| English                                           | Amharic                                           |
+|---------------------------------------------------|---------------------------------------------------|
+| ![](asset/images/screenshots/home_1_light.jpg)    | ![](asset/images/screenshots/detail_light_am.jpg) |
+| ![](asset/images/screenshots/detail_light_en.jpg) | ![](asset/images/screenshots/cart_light_am.jpg)   |
+| ![](asset/images/screenshots/cart_light.jpg)      |
 
 ### Dark Theme
 
-| English                                                     |
-|-------------------------------------------------------------|
-| ![Home Dark EN](assets/images/screenshots/home_1_dark.jpg)  |
-| ![Home Dark EN](assets/images/screenshots/home_2_dark.jpg)  |
-| ![Home Dark EN](assets/images/screenshots/detail_dark.jpg)  |
-| ![Details Dark EN](assets/images/screenshots/cart_dark.jpg) |
+| English                                                    |
+|------------------------------------------------------------|
+| ![Home Dark EN](asset/images/screenshots/home_1_dark.jpg)  |
+| ![Home Dark EN](asset/images/screenshots/home_2_dark.jpg)  |
+| ![Home Dark EN](asset/images/screenshots/detail_dark.jpg)  |
+| ![Details Dark EN](asset/images/screenshots/cart_dark.jpg) |
 
 ---
 
